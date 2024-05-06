@@ -15,11 +15,10 @@ def useCommand(command, listPlayer):
     elif(command=="replay"): 
         listPlayer.previous()
         listPlayer.next()
-    elif(command.endswith('.mp3') or command.endswith('.m4a')or command.endswith('.flac')):
+    elif(command.endswith('.mp3') or command.endswith('.m4a') or command.endswith('.flac') or command.endswith('.m3u')):
         mediaList = vlc.MediaList()
         mediaList.add_media(vlc.Media(os.path.join(PATH,command)))
         listPlayer.set_media_list(mediaList)
-        print(listPlayer)
         listPlayer.play()
     else: 
         mediaList = vlc.MediaList()
@@ -28,7 +27,6 @@ def useCommand(command, listPlayer):
         for s in songs:
             mediaList.add_media(vlc.Media(os.path.join(path,s)))
         listPlayer.set_media_list(mediaList)
-        print(listPlayer)
         listPlayer.play()    
 while True:
     print("Wat do?")
